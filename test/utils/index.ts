@@ -13,10 +13,10 @@ export default class TestUtils {
     return arr.map(x => x)
   }
 
-  static isSorted(arr): boolean {
+  static isSorted(arr: any[]): boolean {
     let result = true
-    for(let i = 0, len = arr.lenght; i < len; i++) {
-      if(!less(arr[i], arr[i])) return false
+    for(let i = 0, len = arr.length; i < len - 1; i++) {
+      if(less(arr[i+1], arr[i])) return false
     }
     return result
   }

@@ -15,7 +15,7 @@ export function betterInsertion(arr) {
     const cur = arr[i]
     let j = i
     for(; 0 < j; j--) {
-      if (arr[j] < arr[j-1]) {
+      if (cur < arr[j-1]) {
         arr[j] = arr[j-1]
       } else {
         break

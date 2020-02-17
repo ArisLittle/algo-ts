@@ -1,23 +1,31 @@
 import { selection } from '../src/sort/selection'
 import { insertion, betterInsertion } from '../src/sort/insertion'
+import { bubble, betterBubble } from '../src/sort/bubble'
+import { merge } from '../src/sort/merge'
 import TestUtils from './utils'
 
-const arr = TestUtils.generateRandomArray(100000, 0, 100)
+const number = parseInt(process.argv[2])
+const arr = TestUtils.generateRandomArray(isNaN(number) ? 10000 : number, 0, 100)
+// console.log(arr.toString())
 const arr2 = TestUtils.copyArray(arr)
 const arr3 = TestUtils.copyArray(arr)
+const arr4 = TestUtils.copyArray(arr)
+const arr5 = TestUtils.copyArray(arr)
+const arr6 = TestUtils.copyArray(arr)
 
-console.time('selection sort')
-selection(arr)
-console.timeEnd('selection sort')
+function timeSort(sortFunc, arr) {
+  const label = `${sortFunc.name} sort`  
+  console.time(label)
+  sortFunc(arr)
+  console.timeEnd(label)
+  if (!TestUtils.isSorted(arr)) {
+    console.log(false)
+  }
+}
 
-console.time('insertion sort')
-insertion(arr2)
-console.timeEnd('insertion sort')
-
-console.time('betterInsertion sort')
-betterInsertion(arr3)
-console.timeEnd('betterInsertion sort')
-
-console.log(TestUtils.isSorted(arr))
-console.log(TestUtils.isSorted(arr2))
-console.log(TestUtils.isSorted(arr3))
+timeSort(selection, arr)
+timeSort(insertion, arr2)
+timeSort(betterInsertion, arr3)
+timeSort(bubble, arr4)
+timeSort(betterBubble, arr5)
+timeSort(merge, arr6)
