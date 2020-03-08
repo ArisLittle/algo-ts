@@ -1,4 +1,4 @@
-export function exchange(arr, i, j) {
+export function exchange(arr: number[], i: number, j: number) {
   const temp = arr[i]
   arr[i] = arr[j]
   arr[j] = temp

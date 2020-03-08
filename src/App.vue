@@ -125,16 +125,16 @@ export default Vue.extend({
   },
   methods: {
     start() {
-      console.log(1)
+      // console.log(1)
       this.selectedSort.forEach(type => {
-        console.log(type)
+        // console.log(type)
         const arr = TestUtils.copyArray(testArr)
         type.result = TestUtils.timeSort(type.type, arr);
       })
     },
     generateTaskArr() {
       testArr = TestUtils.generateRandomArray(this.count, this.min, this.max);
-      console.log(testArr)
+      // console.log(testArr)
     }
   }
 });

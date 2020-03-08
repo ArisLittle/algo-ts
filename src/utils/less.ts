@@ -1,3 +1,3 @@
-export function less(a, b) {
+export function less(a: number, b: number) {
   return a < b
 }

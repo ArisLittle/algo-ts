@@ -1,6 +1,6 @@
 
 export function merge(arr: any[]) {
-  const aux = []
+  const aux: number[] = []
   function _merge(arr: any[], low: number, high: number) {
     const mid = Math.floor((high + low) / 2)
     for(let temp = low; temp <=high; temp++) {

@@ -1,6 +1,6 @@
 import { exchange, less } from '../utils'
 
-export function selection(arr) {
+export function selection(arr: number[]) {
   const n = arr.length
   for(let i = 0; i < n; i++) {
     let min = i
